@@ -1,0 +1,788 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Genesys&Titan</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" href="img/iconoTitan.ico"/>
+    </head>
+  <body id="body">
+
+    <!-- Cuadro con iconos para ver la IP del PC -->
+
+  <div  id="contenedorIconPlace" class="contenedorIconPlace" >
+      <img class="iconPlace" src="img/iconEscudoWin.png" alt="">
+      <img class="iconPlace" src="img/openOffice.png" alt="">
+      <img class="iconPlace" src="img/iconExploWin.png" alt="">
+      <img class="iconPlace" src="img/iconVNC.png" alt="" title="WinVNC - 172.27.29.41">
+      <img class="iconPlace" src="img/iconMcafee.png" alt="">
+      <img class="iconPlace" src="img/iconBocina.png" alt="">
+  </div>
+
+  <!-- Barra de inicio -->
+
+       <footer id="barraInicio" class="barraInicio">
+        <div>
+           <img class="inicio" src="img/iconWin10.png" title="Iniciar">
+           <img class="inicio" src="img/lupaBlanca.png" title="Iniciar">
+        </div>    
+                <div class="contenedorIconInicio">
+                   <img id="iconInicioConoUno" class="iconInicioCono" src="img/iconCono1.png" alt="" onclick="mostrarIpPlace()">
+                    <img id="iconInicioConoDos" class="iconInicioCono" src="img/iconCono1.png" alt="" onclick="ocultarIpPlace()">
+                   <img class="iconInicio" src="img/iconActualiza1.png" alt="">
+                   <img class="iconInicio" src="img/iconPantalla.png" alt="">
+                   <img class="iconInicio" src="img/iconBocina.png" alt="">
+                   <div class="fechaHora">
+                        <p><span id="fechaHora"></span>:<span id="fechMinutos"></span> <span id="fechaJornada"></span></p>
+                       <p><span id="fechaDia"></span>/<span id="fechaMes"></span>/<span id="fechaAnio"></span></p>
+                   </div>
+               </div>
+       </footer>
+
+    <!--Visualización del estado del agente-->
+
+    <div class="visualizacionEstado" id="visualizacionEstado">
+        <p>
+            <b>ST Aquí aparece tu nombre</b><br/>
+            Estado: Listo/Break<br/>
+            Sesión activa desde: xx:xx am/pm<br/>
+            Uso SaludTotal_29041, canal Voice<br/>
+            Última conexión del usuario: xx/xx/xxxx xx:xx am/pm
+        </p>
+
+    </div>
+
+    <!--Página Prohibido jugar-->
+
+    <div class="leyH" id="prohibidoJugar">
+      <h1 class="noJugar">¡Aquí no se viene a jugar!</h1>
+      <img class="no" src="img/leyH.gif"/>
+    </div>  
+
+  <!--Ventana Logueado-->
+
+    <div class="contenedorVentanaLogueo" id="contenedorVentanaLogueo">
+  		<div id="contenedor2" class="contenedor2" onclick="ocultarIpPlace()">
+            <div class="izquierda">
+                <img id="logo" class="logo" src="img/LoginTitan.png" onclick="llamadaBotones(), iniciar(), desocultar(), reiniciar()">
+                <img id="logoDos" class="logoDos" src="img/LoginTitanDos.png">
+                <img id="logoTres" class="logoTres" src="img/LoginTitanTres.png" onclick="llamadaDosBotones(), iniciar(), desocultar(), reiniciar()">
+                <h1 class="titanGenesys">・Titan | Genesys</h1>
+            </div>
+
+            <div class="derecha">
+            <img id="gir" class="estado" src="img/gir.png" title="Voice recording in progres">
+            <img id="im" class="estado" src="img/listo.png">
+            <label for="estado" onmouseover="mostrarEstado()" onmouseout="ocultarEstado()" id="nombreAsesor">ST Aquí aparece tu nombre y cédula</label>
+
+            <select class="select" name="estados" id="estado" onchange="cambia(this.options[this.selectedIndex].value)">
+                <option id="select1" value="img/listo.png">&nbsp;&#10004; &nbsp;&nbsp;Listo</option>
+                <option id="select2" value="img/auxiliar.png">&nbsp;&#9200; &nbsp;No está listo</option>
+                <option id="select3" value="img/auxiliar.png">&nbsp;&#9200; &nbsp;No está listo - Break</option>
+                <option id="select4" value="img/auxiliar.png">&nbsp;&#9200; &nbsp;No está listo - Coaching</option>
+                <option id="select5" value="img/auxiliar.png">&nbsp;&#9200; &nbsp;No está listo - Entrenamiento</option>
+                <option id="select6" value="img/auxiliar.png">&nbsp;&#9200; &nbsp;No está listo - Evaluación</option>
+                <option id="select7" value="img/auxiliar.png">&nbsp;&#9200; &nbsp;No está listo - Pausas Activas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                <option id="select8" value="img/auxiliar.png">&nbsp;&#9200; &nbsp;No está listo - Preturno</option>
+                <option id="select9" value="img/listo.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Iniciar sesión</option>
+                <option id="select10" value="img/nolisto.png">&nbsp;&#9421; &nbsp;Finalizar sesión</option>
+            </select>
+
+                <img class="iconoAsesor" src="img/iconoAsesor.png" alt="Asesor">
+                <select class="select" name="asesor" id="asesor">
+                    <option id="select11" value="ventanaVisible">&nbsp;&nbsp;Ventana principal siempre visible&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                    <option id="select13" value="cambiarClave">&nbsp;&nbsp;cambiar contraseña</option>
+                    <option id="select14" value="salir">&nbsp;&nbsp;Salir...</option>
+                </select>
+                <img class="help" src="img/help.png" title="Help">
+                <img class="ventana" src="img/minimizar.png" title="Minimizar">
+                <img class="ventana" src="img/maximizar.png" title="Maximizar">
+                <img id="cerrarSesion" class="ventana" src="img/cerrar.png" title="Cerrar" onclick="salirDelSistema();">
+                <img id="cerrarSesionDos" class="ventana" src="img/cerrarDos.png" title="Cerrar" onclick="salirDelSistemaDos();">
+
+            </div>
+
+  		</div>
+
+        <div id="abajo" class="abajo" onclick="ocultarIpPlace()">
+            <div id="grupoBuscar" class="grupoBuscar">
+                <input class="buscador" type="search" id="buscador" name="q" placeholder="Nombre o número de tipo">
+                <img class="lupa" src="img/lupa.png" alt="Buscar">
+            </div>
+            <img id="menu" class="menu" src="img/menu.png" alt="Menú">
+        </div>
+
+<!-- Entrada de llamada botones de control de llamada -->
+
+    <div id="contenedorOpcionesTelefono" class="contenedorOpcionesTelefono">
+        <div id="opcionesTelefono" class="opcionesTelefono" onclick="ocultarIpPlace()">
+            <div class="q">
+                <img id="llamada" src="img/llamada.png" alt="" title="Mostrar team comunicator">
+                <img id="llamadaUno" src="img/llamadaUno.png">
+                <img id="llamadaUnoTerminada" src="img/llamadaUnoTerminada.png">
+
+                <img id="llamadaUnoHold" src="img/llamadaUnoHold.png">
+                <p class="cronometro" id="cronometro">
+                   0<span id="horas">0</span>:<span id="minutos">00</span>:<span id="segundos">00</span>
+                </p>
+                <img id="terminar" src="img/terminar.png" alt="" title="Terminar" onclick="terminarLlamadaNone(), terminarLlamadaBlock()">
+
+                <img id="colgar" src="img/colgar.png" alt="" title="Finalizar llamada" onclick="colgar(), detener(), botonesSecundarios()">
+
+                <img id="hold" src="img/hold.png" alt="" title="Retener llamada" onclick="hold(), ocultarAreasTransferencia()">
+                <img id="holdDos" src="img/holdDos.png" alt="" title="Retomar llamada"onclick="holdDos(), ocultarAreasTransferencia()">
+                <img id="transferencia" src="img/transferencia.png" alt="" title="Transfencia de llamada instantánea" onclick="mostrarAreasTransferencia()">
+                <img id="transferenciaDos" src="img/transferenciaDos.png" alt="" title="Transfencia de llamada instantánea" onclick="ocultarAreasTransferencia()">
+                <img id="teclado" src="img/teclado.png" alt="" title="Teclado numérico" onclick="ocultarAreasTransferencia()">
+                <img id="mute" src="img/mute.png" alt="" title="Silenciar llamada" onclick="mute(), ocultarAreasTransferencia()">
+                <img id="muteDos" src="img/muteDos.png" alt="" title="Escuchar llamada" onclick="muteDos(), ocultarAreasTransferencia()">
+                <img id="conferencia" src="img/conferencia.png" alt="" title="iniciar una consulta"  onclick="ocultarAreasTransferencia()">
+            </div>
+            <img id="menuDos" class="menuDos" src="img/menu.png" alt="Menú">
+        </div>
+    </div>    
+</div>
+
+
+<!-- Parte lateral entró llamada -->
+
+<div id="contenedorInformacionCaso" class="contenedorInformacionCaso">
+    <div id="subContenedorInformacionCaso" class="subContenedorInformacionCaso", onclick="ocultarIpPlace()">
+        <div id="informacionCaso" class="informacionCaso">
+            <p id="titulo">Información del caso</p>
+            <p id="origen"><strong>Origen:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Llamada entrante a 3199999</p>
+            <P id="cola"><strong>Cola de espera:</strong>&nbsp;&nbsp;3199999</P>
+            <p id="ivr"><strong>Opción_IVR:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var_opciones_titan</p>
+        </div>
+
+        <div id="telContacto" class="telContacto">
+            <img class="tab" id="cono" src="img/cono.png"/>
+            <p class="tab">45734784</p>
+            <img class="tab" id="iconoTelefono" src="img/iconoTelefono.png"/>
+            <p class="tab">Conectado</p>
+        </div>
+
+        <div id="campoNotas" class="notas">
+            <p>Notas</p>
+            <textarea id="notas"> </textarea><br/>
+            <input id="guardar" type="button" value="Guardar">
+        </div>
+
+        <div class="contenedorImagenesLaterales">
+            <img id="botonDesOcultar"  class="botonDesOcultar" src="img/botonDesOcultar.png" onclick="desocultar()">
+            <img id="botonOcultar" class="botonOcultar" src="img/botonOcultar.png" onclick="ocultar(), ocultarDos()">
+            <img id="botonAbps" class="botonAbps" src="img/abps.png" onclick="ocultarIpPlace()">
+            <img id="botonContacto" class="botonContacto" src="img/contacto.png" onclick="ocultarIpPlace()">
+            
+        </div>
+
+    </div>
+    <div class="contenedorVentanaTitan" onclick="ocultarIpPlace()">
+        <iframe id="ventanaTitan" class="ventanaTitan" src="img/paginaTitan.png" scrolling="auto" onclick="ocultarIpPlace()">
+        </iframe>
+    </div>
+</div>
+
+    <!--Entorno del escritorio-->
+
+<div id="iconosEscritorio" onclick="ocultarIpPlace()">
+    <img class="icono" src="img/iconExploWin.png" alt="Bibliotecas" title="Bibliotecas">
+    <img class="icono" src="img/SIGSC.png" alt="" title="SIGSC"><br/>
+    <img class="icono" src="img/papelera.png" alt="Papelera" title="Papelera de reciclaje">
+    <img class="icono" src="img/openOffice.png" alt="Open Office" title="Open Office"><br/>
+    <img class="icono" src="img/red.jpg" alt="Red" title="Red">
+    <img class="icono" src="img/accesoGenesys.png" alt="Genesys" id="iconoGenesys" title="Genesys&Titan" ondblclick="ventanaCargando(), ventanaLogueo(), cerrarVentanaCargando()" ><br/>
+    <img class="icono" src="img/explorer.png" alt="Internet Explorer" title="Internet Explorer">
+    <img class="icono" src="img/carpeta.jpg" alt="Carpeta" title="Carpeta compartida"><br/>
+    <img class="icono" src="img/aplicativo.png" alt="" title="PrestacionesNT">
+    <img class="icono" src="img/unidad.png" alt="Unidad Z" title="Unidad Z"><br/>
+    <img class="icono" src="img/juego.png" alt="Mario Bros" id="juego" title="Jugar Mario Bros mapache" ondblclick="prohibidoJugar();">
+    <a href="https://youtu.be/VjIUsZpL6xQ" target="_blank"><img class="icono" src="img/iconYouTube.png" alt="YouTube" title="YouTube"></a><br/>
+    <img class="icono" src="img/aplicativoDos.png" alt="" title="AgendaUI">
+    <a href="manuales/manualTitan.pdf" target="_blank"><img class="icono" src="img/adobeReader.png" alt="" title="Manual"></a>
+
+</div>
+
+<!--Ventana cargando-->
+
+    <div class="ventanaCargando" id="ventanaCargando" onclick="ocultarIpPlace()">
+        <img src="img/cargando.png">
+    </div>
+
+<!--Ventana formulario de logueo-->
+
+        <div class="contenedor" id="contenedor" onclick="ocultarIpPlace()">
+        <img class="logo" src="img/LoginTitan.png">
+        <div class="encabezado">  
+            <h1>Titan | Genesys</h1>
+            <p class="version">Desktop Edition 8.5.126.07</p>
+            </div>
+        <form method="get" id="formularioLogueo" class="formulario">
+            <input type="text" id="usuario" placeholder="Nombre de usuario" required><br/>
+            <input type="password" id="clave" placeholder="Contraseña">
+
+            <input type="password" id="campoClave" placeholder="Contraseña" required>
+
+            <select class="lista">
+                <option>Español (México)</option>
+                <option>English (United States)</option>
+            </select>
+            <br/>
+            <input type="text" id="dominio" placeholder="Nombre de aplicación" required><br/>
+            <input type="text" id="ipGenesys" placeholder="Host/Configuración" required><br/>
+            <input type="text" id="puerto" placeholder="Puerto" required><br/>
+
+                <input id="formularioDos" class="boton" type="submit" value="Iniciar sesión" onclick="validarSesion(), limpiarFormularioDos();">
+                <input id="cerrarVentana" onclick="cerrarLogueo(), limpiarFormulario()" class="boton" type="button" value="Cancelar"><br/>
+            </form>
+            <br>
+        <p class="bps">©2018 Genesys and Américas BPS v3.0.0</p>
+        </div>
+
+<!--Ventana formulario de lugar-->
+
+        <div class="ventanaLugar" id="ventanaLugar" onclick="ocultarIpPlace()">
+            <img class="logo" src="img/LoginTitan.png">
+            <div class="encabezado">
+                <h1>Titan | Genesys</h1>
+                <p class="version">Desktop Edition 8.5.126.07</p>
+            </div>
+            <p class="bienvenido">Bienvenida a turno.</p>
+            <form method="get" class="formulario" id="formularioLugar">
+                <input id="place" type="text" placeholder="">
+
+                <input id="campoPlace" class="form-control" type="text" placeholder="Lugar" list="listadoPlace" required onkeyup="mostrarListaPlace()">
+
+                <div class="contenidoBuscador" id="contenidoBuscador">
+                    <span id="resultado" class="resultado"></span>
+                </div>
+                <br/><br/>
+                <a class="hipervinculo" href="#">Cambiar cuenta de inicio de sesión</a><br/>
+                    <input id="formularioTres" class="boton" type="submit" onclick="validarLugar(), limpiarFormularioTres(), quitarPlace()" value="Aceptar">
+                    <input id="formularioCuatro" onclick="cerrarLugar(), limpiarFormularioCuatro(), quitarPlace()" class="boton" type="button" value="Cancelar">
+            </form>
+            <br>
+        <p class="bps">©2018 Genesys and Américas BPS v3.0.0</p>
+        </div>
+
+  <!-- Ventana de transferencias -->
+
+    <img id="ventanaTransferencias" class="ventanaTransferencias" src="img/ventanaTransferencias.png" alt="">
+    <img id="ventanaTransferenciasDos" class="ventanaTransferenciasDos" src="img/ventanaTransferenciasDos.png" alt="" onclick="colgar(), detener()">
+
+  <!--Ventana salir del sistema-->
+
+   <div class="salirMarco" id="avisoSalir">
+        <div class="salirCabecera">
+            <p>Genesys | Titan</p>
+            <p id="salirX" onclick="salirDelTodoNo();">X</p>
+        </div>
+        <div class="salirCuerpo">
+            <img src="img/pregunta.png" alt="" id="salirPregunta">
+            <p>¿Está seguro de que desea cerrar sesión en todos los canales y salir de la aplicación?</p>
+        </div>
+        <div class="salirBotones">
+            <input type="button" value="Si" class="salirBoton" id="salirDelSistemaSi" onclick="salirDelTodoSi(), location.reload()">
+            <input type="button" value="No" class="salirBoton" id="salirDelSistemaNo" onclick="salirDelTodoNo();">
+        </div>
+    </div>
+
+    <!-- Ventana cerrar ventana forzadamente -->
+
+    <div class="salidaForzada" id="forzarSalida">
+        <p id="sistemaUno">Sistema</p>
+        <div class="salirSistema">
+            <div class="salirSistemaDos"><img src="img/Icono_salir.png"></div>
+            <div id="sistemaTres" class="salirSistemaTres">
+                <p><b>Sistema</b></p>
+                <p>Normal</p>
+                <p>TITAN | Por favor cierre todas las interacciones.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="botonesSalidaForsada">
+            <input type="button" value="Mostrar" id="botonSalidaMostrar" onclick="cerrarForzarSalida();">
+            <input type="button" value="Descartar" id="botonSalidaDescartar" onclick="cerrarForzarSalida();">
+        </div>
+    </div>
+
+    <script>
+
+    function ventanaCargando(){
+        document.getElementById("ventanaCargando").style.display="block";
+    }
+
+    function cerrarVentanaCargando() {
+      timeoutID = window.setTimeout(desapareceVentanaCargando, 2000);
+    }
+
+    function desapareceVentanaCargando() {
+      document.getElementById("ventanaCargando").style.display="none";
+    }
+
+    function ventanaLogueo(){
+        document.getElementById("contenedor").style.display="block";
+    }
+
+    function cerrarLogueo(){
+        document.getElementById("contenedor").style.display="none";
+    }
+
+    function limpiarFormulario() {
+            document.getElementById("formularioLogueo").reset();
+    }
+
+        function limpiarFormularioDos() {
+            document.getElementById("formularioLogueo").reset();
+    }
+
+        function limpiarFormularioTres() {
+            document.getElementById("formularioLugar").reset();
+    }
+       function limpiarFormularioCuatro() {
+            document.getElementById("formularioLugar").reset();
+    }
+    function cerrarLugar(){
+        document.getElementById("ventanaLugar").style.display="none";
+    }
+
+    //validaciones del formulario de logueo Usuario: abps_st_entrenamiento, clave: Temporal1, dominio: WDE_SaludTotal, ipGenesys: 172.27.48.241, puerto: 2020.
+
+    function validarSesion(){
+    var usuario=document.getElementById("usuario").value;
+    var clave=document.getElementById("clave").value;
+    var campoClave=document.getElementById("campoClave").value;
+    var dominio=document.getElementById("dominio").value;
+    var ipGenesys=document.getElementById("ipGenesys").value;
+    var puerto=document.getElementById("puerto").value;
+
+    if(usuario=="abps_st_entrenamiento" || usuario=="abps_vs_entrenamiento" && clave=="" && campoClave=="Temporal1" && dominio=="WDE_SaludTotal" && ipGenesys=="172.27.48.241" && puerto=="2020" ){
+        document.getElementById("contenedor").style.display="none";
+        document.getElementById("ventanaLugar").style.display="block";
+
+        }
+    else{
+        alert('Ingresaste mal algún dato, revisa tus apuntes e inténtalo de nuevo.');
+        }
+    }
+
+    //Validación del place, lugar o IP del PC.
+
+    function validarLugar(){
+    var place=document.getElementById("place").value;
+    var campoPlace=document.getElementById("campoPlace").value;
+
+    if(place=="" && campoPlace=="SaludTotal_29041"){
+        document.getElementById("contenedorVentanaLogueo").style.display="block";
+        document.getElementById("ventanaLugar").style.display="none";
+    }
+    else{
+        alert('Ingresaste mal el dato, revisa tus apuntes e inténtalo de nuevo.');
+    }
+    }
+
+     //Cambios de estado
+
+        function cambia(src){
+         document.getElementById("im").src=src;
+        }
+
+    //Al cerrar la ventana aparecerá mensaje de confirmación
+
+    function salirDelSistema(){
+        document.getElementById("avisoSalir").style.display="block";
+    }
+
+    function salirDelTodoSi(){
+        document.getElementById("avisoSalir").style.display="none";
+        document.getElementById("contenedorVentanaLogueo").style.display="none";
+    }
+
+    function salirDelTodoNo(){
+        document.getElementById("avisoSalir").style.display="none";
+    }
+
+    //cronómetro
+
+    var cronometro;
+    function iniciar(){
+
+        var h=0;
+        var m=0;
+        var s=0;
+
+        var hp=document.getElementById("horas");
+        var mp=document.getElementById("minutos");
+        var sp=document.getElementById("segundos");
+
+        cronometro=setInterval(function(){
+
+            if(s==59){
+                s=0;
+                m++;
+                mp.innerHTML=m;
+                if(m<10){
+                    mp.innerHTML="0"+m;
+                }
+            if(m==59){
+                m=0;
+                h++;
+                hp.innerHTML=h;
+                if(h<10){
+                    hp.innerHTML=h;
+                }
+            }
+            }
+            s++;
+            sp.innerHTML=s;
+            if(s<10){
+                sp.innerHTML="0"+s;
+            }
+        },1000)
+    }
+
+    //Terminar la llamada
+
+function colgar(){
+    document.getElementById("llamadaUno").style.display="none";
+    document.getElementById("llamadaUnoTerminada").style.display="block";
+    document.getElementById("colgar").style.display="none";
+    document.getElementById("terminar").style.display="block";
+    document.getElementById("hold").style.display="none";
+    document.getElementById("transferencia").style.display="none";
+    document.getElementById("teclado").style.display="none";
+    document.getElementById("mute").style.display="none";
+    document.getElementById("conferencia").style.display="none";
+    document.getElementById("transferenciaDos").style.display = "none";
+    document.getElementById("ventanaTransferencias").style.display = "none";
+    document.getElementById("ventanaTransferenciasDos").style.display = "none";
+    document.getElementById("llamadaUnoHold").style.display = "none";
+    document.getElementById("holdDos").style.display = "none";
+    document.getElementById("muteDos").style.display = "none";
+}
+
+//Detener cronómetro
+
+function detener(){
+    clearInterval(cronometro);
+    document.getElementById("cronometro").disabled = true;
+ }
+
+ //Reiniciar cronómetro
+
+function reiniciar(){
+    document.getElementById("horas").innerHTML = "0";
+    document.getElementById("minutos").innerHTML = "00";
+    document.getElementById("segundos").innerHTML = "00";
+}
+
+//Prohibido Jugar
+
+function prohibidoJugar(){
+    document.getElementById("prohibidoJugar").style.display="block";
+    document.getElementById("contenedorVentanaLogueo").style.display="none";
+}
+
+//Visualización del estado del agente
+
+function mostrarEstado(){
+     document.getElementById("visualizacionEstado").style.display="block";
+}
+
+function ocultarEstado(){
+    document.getElementById("visualizacionEstado").style.display="none";
+}
+
+//Visualización Place
+
+function mostrarIpPlace(){
+    document.getElementById("contenedorIconPlace").style.display="block";
+    document.getElementById("iconInicioConoUno").style.display="none";
+    document.getElementById("iconInicioConoDos").style.display="block";
+}
+
+function ocultarIpPlace(){
+    document.getElementById("contenedorIconPlace").style.display="none";
+    document.getElementById("iconInicioConoDos").style.display="none";
+    document.getElementById("iconInicioConoUno").style.display="block";
+}
+
+//Entró llamada
+
+function llamadaBotones(){
+    document.getElementById("body").style.background="#ECECEC";
+    document.getElementById("contenedorOpcionesTelefono").style.display="block";
+    document.getElementById("gir").style.display="block";
+    document.getElementById("abajo").style.display="none";
+    document.getElementById("iconosEscritorio").style.display="none";
+    document.getElementById("contenedorInformacionCaso").style.display="block";
+    document.getElementById("logo").style.display="none";
+    document.getElementById("logoDos").style.display="block";
+    document.getElementById("cerrarSesion").style.display = "none";
+    document.getElementById("cerrarSesionDos").style.display = "block";
+}
+
+function terminarLlamadaNone(){
+    document.getElementById("gir").style.display="none";
+    document.getElementById("opcionesTelefono").style.display="none";
+    document.getElementById("contenedorInformacionCaso").style.display="none";
+    document.getElementById("logoDos").style.display="none";
+    document.getElementById("cerrarSesionDos").style.display = "none";
+}
+
+function terminarLlamadaBlock(){
+    document.getElementById("abajo").style.display="flex";
+    document.getElementById("body").style.background="#FFF";
+    document.getElementById("iconosEscritorio").style.display="block";
+    document.getElementById("logoTres").style.display="block";
+    document.getElementById("cerrarSesion").style.display = "block";
+}
+
+function botonesSecundarios(){
+    document.getElementById("llamadaUnoHold").style.display="none";
+    document.getElementById("holdDos").style.display="none";
+    document.getElementById("muteDos").style.display="none";
+}
+
+// siguiente llamada
+
+function llamadaDosBotones(){
+    document.getElementById("body").style.background="#ECECEC";
+    document.getElementById("gir").style.display="block";
+    document.getElementById("iconosEscritorio").style.display="none";
+    document.getElementById("contenedorInformacionCaso").style.display="block";
+    document.getElementById("logoDos").style.display="block";
+    document.getElementById("logoTres").style.display="none";
+    document.getElementById("abajo").style.display="none";
+    document.getElementById("opcionesTelefono").style.display="flex";
+    document.getElementById("llamadaUnoTerminada").style.display="none";
+    document.getElementById("terminar").style.display="none";
+    document.getElementById("llamadaUno").style.display="block";
+    document.getElementById("colgar").style.display="block";
+    document.getElementById("hold").style.display="block";
+    document.getElementById("transferencia").style.display="block";
+    document.getElementById("teclado").style.display="block";
+    document.getElementById("mute").style.display="block";
+    document.getElementById("conferencia").style.display="block";
+    document.getElementById("cerrarSesion").style.display = "none";
+    document.getElementById("cerrarSesionDos").style.display = "block";
+}
+
+function hold(){
+    document.getElementById("hold").style.display="none";
+    document.getElementById("holdDos").style.display="block";
+    document.getElementById("teclado").style.display="none";
+    document.getElementById("llamadaUno").style.display="none";
+    document.getElementById("llamadaUnoHold").style.display="block";
+}
+
+function holdDos(){
+    document.getElementById("hold").style.display="block";
+    document.getElementById("holdDos").style.display="none";
+    document.getElementById("teclado").style.display="block";
+    document.getElementById("llamadaUno").style.display="block";
+    document.getElementById("llamadaUnoHold").style.display="none";
+}
+
+function mute(){
+    document.getElementById("mute").style.display="none";
+    document.getElementById("muteDos").style.display="block";
+}
+
+function muteDos(){
+    document.getElementById("mute").style.display="block";
+    document.getElementById("muteDos").style.display="none";
+}
+
+function ocultar(){
+    document.getElementById("botonOcultar").style.display="none";
+    document.getElementById("botonDesOcultar").style.display="block";
+    document.getElementById("informacionCaso").style.display="none";
+    document.getElementById("telContacto").style.display="none";
+    document.getElementById("campoNotas").style.display="none";
+    document.getElementById("botonDesOcultar").style.left="15px";
+    document.getElementById("botonAbps").style.left="15px";
+    document.getElementById("botonContacto").style.left="15px";
+    document.getElementById("ventanaTitan").style.left="45px";
+    document.getElementById("ventanaTitan").style.width="1290px";
+}
+
+function desocultar(){
+    document.getElementById("botonOcultar").style.display="block";
+    document.getElementById("botonDesOcultar").style.display="none";
+    document.getElementById("informacionCaso").style.display="block";
+    document.getElementById("telContacto").style.display="flex";
+    document.getElementById("campoNotas").style.display="block";
+    document.getElementById("botonAbps").style.left="377px";
+    document.getElementById("botonContacto").style.left="377px";
+    document.getElementById("ventanaTitan").style.left="405px";
+    document.getElementById("ventanaTitan").style.width="930px";
+}
+
+//fecha y Hora reloj de la barra de inicio
+
+(function(){
+ var actualizarHora = function(){
+    var d = new Date();
+    var hora = d.getHours();
+    var horaReloj =hora;
+    var minuto = d.getMinutes();
+    var dia = d.getDate();
+    var mes = 1 + d.getMonth();
+
+    if(horaReloj < 10){
+    document.getElementById("fechaHora").textContent = "0" + horaReloj;
+    }else{
+    document.getElementById("fechaHora").textContent = horaReloj;
+    };
+
+    if(minuto < 10){
+    document.getElementById("fechMinutos").textContent = "0" + minuto;
+    }else{
+    document.getElementById("fechMinutos").textContent = minuto;
+    };
+
+    if(dia < 10){
+    document.getElementById("fechaDia").textContent = "0" + dia;
+    }else{
+    document.getElementById("fechaDia").textContent =dia;
+    };
+
+    if(mes < 10){
+    document.getElementById("fechaMes").textContent = "0" + mes;
+    }else{
+    document.getElementById("fechaMes").textContent = mes;
+    };
+
+    document.getElementById("fechaAnio").textContent = d.getFullYear();
+
+};
+ actualizarHora();
+ var intervalo = setInterval(actualizarHora, 1000);
+}())
+
+// salida Forzada tiene llamada y trata de cerrar la sesión
+
+function salirDelSistemaDos(){
+    document.getElementById("forzarSalida").style.display = "block";
+}
+
+function cerrarForzarSalida(){
+    document.getElementById("forzarSalida").style.display = "none";
+}
+
+function mostrarAreasTransferencia(){
+    document.getElementById("ventanaTransferencias").style.display = "block";
+    document.getElementById("ventanaTransferenciasDos").style.display = "block";
+    document.getElementById("transferencia").style.display = "none";
+    document.getElementById("transferenciaDos").style.display = "block";
+}
+
+function ocultarAreasTransferencia(){
+    document.getElementById("ventanaTransferencias").style.display = "none";
+    document.getElementById("ventanaTransferenciasDos").style.display = "none";
+    document.getElementById("transferencia").style.display = "block";
+    document.getElementById("transferenciaDos").style.display = "none";
+}
+
+// Listado de Places
+
+        const productos = [
+        {nombre: 'SaludTotal_29029'},
+        {nombre: 'SaludTotal_29030'},
+        {nombre: 'SaludTotal_29031'},
+        {nombre: 'SaludTotal_29032'},
+        {nombre: 'SaludTotal_29033'},
+        {nombre: 'SaludTotal_29034'},
+        {nombre: 'SaludTotal_29035'},
+        {nombre: 'SaludTotal_29036'},
+        {nombre: 'SaludTotal_29037'},
+        {nombre: 'SaludTotal_29038'},
+        {nombre: 'SaludTotal_29039'},
+        {nombre: 'SaludTotal_29040'},
+        {nombre: 'SaludTotal_29041'},
+        {nombre: 'SaludTotal_29042'},
+        {nombre: 'SaludTotal_29043'},
+        {nombre: 'SaludTotal_29044'},
+        {nombre: 'SaludTotal_29045'},
+        {nombre: 'SaludTotal_29046'},
+        {nombre: 'SaludTotal_29047'},
+        {nombre: 'SaludTotal_29048'},
+        {nombre: 'SaludTotal_29049'},
+        {nombre: 'SaludTotal_29050'},
+        {nombre: 'SaludTotal_29051'},
+        {nombre: 'SaludTotal_29052'},
+        {nombre: 'SaludTotal_29053'},
+        {nombre: 'SaludTotal_29054'},
+        {nombre: 'SaludTotal_29055'},
+        {nombre: 'SaludTotal_29056'},
+        {nombre: 'SaludTotal_29057'},
+        {nombre: 'SaludTotal_29058'},
+        {nombre: 'SaludTotal_29059'},
+        {nombre: 'SaludTotal_29060'},
+        {nombre: 'SaludTotal_29061'},
+        {nombre: 'SaludTotal_28040'},
+        {nombre: 'SaludTotal_28041'},
+        {nombre: 'SaludTotal_28042'},
+        {nombre: 'SaludTotal_27040'},
+        {nombre: 'SaludTotal_27041'},
+        {nombre: 'SaludTotal_27042'},
+        {nombre: 'SaludTotal_29140'},
+        {nombre: 'SaludTotal_29141'},
+        {nombre: 'SaludTotal_29142'},
+        ]
+
+        const formulario = document.querySelector("#campoPlace");
+        const resultado = document.querySelector("#resultado");
+
+        const filtrar = ()=>{
+            resultado.innerHTML = "";
+            const texto = formulario.value;
+
+            for(let producto of productos){
+                let nombre = producto.nombre;
+                if(nombre.indexOf(texto) !== -1){
+                    resultado.innerHTML += `
+                        <dt onclick="SeleccionarProducto(event)">${producto.nombre}</dt>
+                     `
+                }
+            }
+            let campoPlace1 = document.getElementById("campoPlace").value.length;
+                if(campoPlace1 == 0){
+                    document.getElementById("contenidoBuscador").style.display="none";
+                }
+        }
+        formulario.addEventListener("keyup", filtrar)
+
+        filtrar();
+
+        // muestra el listado de place cuando se digita algo
+
+        function mostrarListaPlace(){
+            document.getElementById("contenidoBuscador").style.display="block";
+        }
+
+	function SeleccionarProducto(event){
+	  //console.log(event.target.innerText);
+	  var itp = document.getElementById("campoPlace");
+	  itp.value = event.target.innerText;
+	  document.getElementById("contenidoBuscador").style.display="none";
+	}
+
+        // función para que el place mo quede pegado después de dar Guardar o Cancelar
+
+        function quitarPlace(){
+            document.getElementById("contenidoBuscador").style.display="none";
+        }
+
+        // Seleccionar place
+	let placeLugar = document.getElementsByTagName("span").innerText;
+	console.log(placeLugar);
+        //function seleccionarUnPlace(){
+        //document.getElementById("campoPlace").value=productos.nombre;
+        //document.getElementById("contenidoBuscador").style.display="none";
+        //}
+
+    </script>
+  </body>
+</html>

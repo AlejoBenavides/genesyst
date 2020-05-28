@@ -1,0 +1,816 @@
+*{
+padding:0;
+margin:0;
+font-family: "sans-serif", calibri;
+}
+
+.icono{
+cursor: pointer;
+height:52px;
+padding: 10px 10px 10px 10px;
+}
+
+.ventanaCargando{
+width:603px;
+height:328px;
+position: absolute;
+left:410px;
+top:140px;
+display:none;
+}
+
+.ventanaCargando img{
+  box-shadow: 2px 2px 10px #666; 
+}
+
+.entroLlamada{
+background-image:url(../img/entroLlamada.png);
+background-position:center center;
+background-repeat:no-repeat;
+background-size:cover;
+background-attachment:fixed;
+}
+
+.contenedor{
+   background: #ececec;
+   font-family: "sans-serif", calibri;
+   width: 320px;
+   height: 440px;
+   position: absolute;
+   left:500px;
+   top:60px;
+   margin:5px;
+   padding: 30px;
+   box-shadow: 2px 2px 10px #666;
+   display:none;
+   animation:modal 1s;
+   animation-delay:2s;
+   animation-fill-mode:forwards;
+   visibility: hidden;
+   opacity: 1;
+}
+
+#clave{
+display:none;
+}
+
+.ventanaLugar{
+   background: #ececec;
+   font-family: "sans-serif", calibri;
+   width: 320px;
+   height: 330px;
+   position: absolute;
+   left:500px;
+   top:60px;
+   margin:5px;
+   padding: 30px;
+   box-shadow: 2px 2px 10px #666;
+   display:none;
+}
+
+.logo{
+   width:30px;
+}
+
+.logoDos{
+   width:30px;
+   display: none;
+}
+
+.logoTres{
+   width:30px;
+   display: none;
+}
+
+input[type="text"], [type="password"]{
+   padding: 3px;
+   width: 300px;
+   margin:5px;
+   font-size: 14px;
+}
+
+input[type="checkbox"]{
+   padding: 3px;
+   margin:5px;
+   cursor: pointer;
+
+   }
+
+
+.lista {
+   margin: 5px 5px 10px 5px;
+   border:1px solid #d9d9d9;
+   height:30px;
+   overflow: hidden;
+   width: 310px;
+   cursor: pointer;
+   font-size: 12px;
+   
+}
+select {
+   background: #f4f4f4;
+
+}
+
+select:focus{
+   outline: none;
+}
+
+label{
+   font-size: 14px;
+}
+
+h1{
+   font-size: 20px;
+}
+
+.version{
+   font-size: 14px;
+}
+
+.encabezado{
+   margin: 0 0 20px 40px;
+}
+
+
+input[type="submit"], [type="button"]{
+   background: #f4f4f4;
+   font-size: 12px;
+   width:140px;
+   height:30px;
+   margin:40px 0px 20px 5px;
+   cursor: pointer;
+}
+
+
+
+input[type="button"]{
+   margin:0px 0px 0px 26px;
+}
+
+.bps{
+   font-size: 12px;
+}
+
+.boton:hover {
+   color:#f4f4f4;
+   background: #3c444c;
+   }
+
+
+.hipervinculo{
+    margin:5px;
+   cursor: pointer;
+   color: #3c444c;
+}
+.bienvenido{
+margin:0 0 0 5px;
+background:#3c444c;
+color:#f4f4f4;
+padding:5px;
+font-size: 12px;
+width: 300px;
+border:0;
+}
+
+.iconoAsesor{
+width:20px;
+margin: 0 0 0 20px;
+}
+
+.menu{
+width:20px;
+margin:0 20px 0 0;
+cursor: pointer;
+}
+
+.menuDos{
+width:20px;
+margin:0 20px 0 0;
+cursor: pointer;
+}
+
+.titanGenesys{
+color:#f4f4f4;
+}
+
+.q{
+margin:0;
+padding:0;
+font-size:0px;
+display:flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.izquierda{
+    display:flex;
+    align-items: center;
+    width:300px;
+}
+
+.derecha{
+    display:flex;
+    align-items: center;
+    width:800px;
+    justify-content: flex-end;
+    padding:0;
+}
+
+.cronometro{
+width: 70px;
+height:28px;
+font-size:16px;
+color:#fff;
+background:#3c444c;
+text-align:center;
+padding-top: 7px;
+
+
+}
+
+.select {
+   color:#FFF;
+   width:19px;
+   cursor: pointer;
+   border-radius:3px;
+   margin: 0 3px;
+   background:none;
+
+}
+
+#asesor{
+   margin: 0 15px 0 0;
+}
+
+.select:focus{
+   outline: none;
+   }
+
+#gir{
+    border-right: 1px solid #878E91;
+    padding: 10px;
+    display: none;
+}
+
+#im{
+margin-left: 15px;
+}
+
+.estado{
+width:20px;
+margin: 0 5px;
+}
+
+.contenedor2{
+    display:flex;
+    align-items: center;
+    background:#3c444c;
+    color: #f4f4f4;
+    justify-content: space-between;
+    padding:0;
+}
+
+.contenedorVentanaLogueo{
+    display:none;
+    position:relative;
+    left:0;
+    top:0;
+    width:100%;
+}
+
+.contenedorVentanaLogueoDos{
+    position:relative;
+    left:0;
+    top:0;
+    width:100%;
+
+}
+
+.abajo{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #CBCBCB;
+    background: #f4f4f4;
+    z-index:2000;
+    }
+
+
+.opcionesTelefono{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:0;
+    padding:3px 0 5px 0;
+    border-bottom: 1px solid #CBCBCB;
+    background:#ECECEC;
+    z-index:2000;
+}
+
+.contenedorOpcionesTelefono{
+  display: none;
+}
+
+.buscador{
+font-size: 14px;
+padding:3px 3px 3px 5px;
+border:0;
+}
+
+.lupa{
+width:15px;
+text-align:left;
+margin: 0 5px 0 5px;
+}
+
+.grupoBuscar{
+   display:flex;
+   align-items: center;
+   border: #3c444c solid 1px;
+   margin:8px 10px;
+   background:#fff;
+   width: 173px;
+}
+
+.ventana:hover{
+background-color:#464E56;
+}
+
+.ventana{
+width:15px;
+margin:0 5px;
+padding:3px;
+cursor: pointer;
+}
+
+.help{
+width:35px;
+padding: 10px 17px 7px 10px;
+margin:0;
+border-left: 1px solid #878E91;
+border-right: 1px solid #878E91;
+}
+
+.leyH{
+  background: #FDFFFC;
+  width: 100%;
+  height:100%;
+  position:fixed;
+  left:0;
+  top:0;
+  display: none;
+}
+
+.no{
+  float: right;
+  width:50%;
+
+}
+
+.noJugar{
+  position: absolute;
+  left:10px;
+  font-size: 150px;
+  color: red;
+  width: 45%;
+  padding: 10px;
+}
+
+.informacionCaso{
+  border:1px solid #EDB430;
+  width: 360px;
+  background: #fff;
+  padding:0 0 5px 0;
+  margin: 3px 3px 5px 10px;
+}
+
+#titulo{
+  background: #EDB430;
+  color:#fff;
+  padding: 3px 0 3px 10px;
+  font-size: 14px;
+}
+
+#origen, #cola, #ivr{
+  padding: 3px 0 3px 10px;
+  font-size: 14px;
+}
+
+.telContacto{
+  border:1px solid #CFCFCF;
+  width: 360px;
+  background: #fff;
+  margin: 3px 3px 5px 10px;
+  font-size: 14px;
+  display:flex;
+  align-items: center;
+  
+  }
+
+#cono, #iconoTelefono{
+  width: 20px;
+}
+
+.tab{
+  padding:3px 5px;
+}
+
+.notas{
+  border:1px solid #CFCFCF;
+  height:370px;
+  background: #fff;
+  margin: 3px 3px 5px 10px;
+  color: #5A94FF;
+  padding:10px 10px;
+  font-size: 16px;
+  font-weight:bold;
+}
+
+#notas{
+  width:330px;
+  height:75%;
+  padding: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+#guardar{
+ width:80px;
+ position: relative;
+ left: 235px; 
+}
+
+#ventanaTitan{
+  margin-top: 2px;
+  width:930px;
+  height: 530px;
+  position: relative;
+  left: 405px;
+}
+
+#llamada, #colgar, #hold, #holdDos, #transferencia, #teclado, #mute, #muteDos, #conferencia{
+    cursor:pointer;
+}
+
+#muteDos{
+    display:none;
+}
+
+#holdDos{
+    display:none;
+}
+
+#llamadaUnoHold{
+    display:none;
+}
+
+#llamadaUnoTerminada{
+    display:none;
+}
+
+#fondo{
+    background:#fff;
+}
+
+.salirMarco{
+    background:#fff;
+    border: 1px solid rgba(213,213,213,1);
+    margin:50px;
+    width: 620px;
+    position:absolute;
+    left:330px;
+    top:200px;
+    box-shadow: 2px 2px 10px #666;
+    display: none;
+}
+
+.salirCabecera{
+    display:flex;
+    align-items: center;
+    background:#3c444c;
+    color: #f4f4f4;
+    justify-content: space-between;
+    padding:5px;
+    font-size:22px;
+    font-family:calibri;
+}
+
+#salirPregunta{
+    width:30px;
+    margin-right: 10px;
+}
+
+.salirCuerpo{
+    display:flex;
+    align-items: center;
+    padding:10px;
+    font-family:calibri;
+    color: #3c444c;
+}
+
+.salirBotones{
+    margin: 20px;
+    position: relative;
+    text-align: right;
+}
+
+.salirBoton{
+    width:110px;
+}
+
+.salirBoton:hover {
+   color:#f4f4f4;
+   background: #3c444c;
+   }
+
+#salirX{
+    cursor:pointer;
+}
+
+#cerrarSesionDos{
+    display:none;
+}
+
+
+@keyframes modal{
+  100%{
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#select1,#select2,#select3,#select4,#select5,#select6,#select7,#select8,#select10,#select11,#select12,#select13,#select14 {
+color:black;
+}
+#select9{
+color:gray;
+}
+
+#place{
+display:none;
+}
+
+.entroLlamada1{
+display:none;
+}
+
+.logueo{
+background:#ECECEC;
+}
+
+.visualizacionEstado{
+    display:none;
+    background:#fff;
+    width: 310px;
+    height:85px;
+    position: fixed;
+    z-index:2000;
+    left:900px;
+    top:30px;
+    box-shadow: 2px 2px 2px #666;
+    color:#3c444c;
+    font-size:14px;
+    border: #CFCFCF 1px solid;
+    padding: 10px;
+    animation:estado 1s;
+    animation-delay:0.8s;
+    animation-fill-mode:forwards;
+    visibility: hidden;
+    opacity: 1;
+}
+
+@keyframes estado{
+    100%{
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#nombreAsesor{
+padding:3px 0 3px 0;
+}
+
+#nombreAsesor:hover{
+background:#464E56;
+}
+
+.salidaForzada{
+width: 360px;
+height:150px;
+position: fixed;
+z-index:2000;
+bottom:40px;
+right:0px;
+box-shadow: 2px 2px 2px #666;
+border: #D6D6D6 solid 1px;
+background: #fff;
+display: none;
+}
+
+#sistemaUno{
+  background: #3c444c;
+  color:#fff;
+  padding: 3px 3px 3px 10px;
+  font-size: 18px;
+  border-bottom: 15px #C48C88 solid;
+}
+
+hr{
+  margin:5px 0 5px 0;
+  background: #C48C88;
+}
+
+.salirSistema{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  
+}
+
+.salirSistemaDos{
+  padding:3px;
+}
+
+.salirSistemaTres{
+  font-size: 14px;
+  padding:3px;
+}
+
+#botonSalidaMostrar, #botonSalidaDescartar{
+  margin: 0 3px 3px 3px;
+  padding: 0;
+  width: 90px;
+}
+
+#botonSalidaMostrar{
+  margin-left: 160px;
+}
+
+#botonSalidaMostrar:hover, #botonSalidaDescartar:hover{
+  background:#464E56;
+  color:#fff;
+}
+
+.contenedorInformacionCaso{
+  display: none;
+}
+
+.subContenedorInformacionCaso{
+  position: absolute;
+}
+
+#terminar{
+  cursor:pointer;
+  display:none;
+}
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    vertical-align: sub;
+    background-image: linear-gradient(to left, #373737, #070707, #191919);
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+
+.inicio{
+    width: 15px;
+    margin: 10px 20px 5px 10px;
+}
+
+.iconInicio{
+    height:15px;
+    margin: 5px;
+}
+
+.iconInicioCono{
+    width:15px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.iconInicioCono:hover{
+    cursor:pointer;
+    background: #A1ADBC;
+    border: solid 1px #4F5762;
+}
+
+.contenedorIconInicio{
+     display:flex;
+     align-items: center;
+     justify-content: space-between;
+
+}
+
+.fechaHora{
+    color:#fff;
+    font-size:12px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.iconPlace{
+    width:18px;
+    margin: 5px;
+}
+
+.contenedorIconPlace{
+    display:grid;
+    grid-template-columns: auto auto;
+    width: 80px;
+    border: solid 1px #C6C6C6;
+    position: absolute;
+    bottom: 35px;
+    right: 120px;
+    padding: 0 0 0 16px;
+    display: none;
+    z-index: 2000;
+    background: gray;
+}
+
+#iconInicioConoDos{
+    display:none;
+}
+
+/* Botones parte lateral de entro llamada*/
+
+.botonOcultar{
+    width: 20px;
+    position: absolute;
+    left: 377px;
+    top: 7px
+}
+
+#botonDesOcultar{
+    width: 20px;
+    position: absolute;
+    left: 377px;
+    top: 7px
+
+}
+
+.botonAbps{
+    width: 20px;
+    position: absolute;
+    left: 377px;
+    top: 38px;
+}
+
+.botonContacto{
+    width: 20px;
+    position: absolute;
+    left: 377px;
+    top: 210px;
+}
+
+/* Ventana de transferencias */
+
+.ventanaTransferencias{
+    position: absolute;
+    top: 75px;
+    left: 307px;
+    z-index: 3000;
+    display: none;
+}
+
+.ventanaTransferenciasDos{
+    position: absolute;
+    top: 134px;
+    left: 307px;
+    z-index: 3000;
+    display: none;
+    cursor: pointer;
+}
+
+#transferenciaDos{
+    display: none;
+}
+
+
+/* Lista de places */
+
+.contenidoBuscador{
+    width: 308px;
+    max-height: 150px;
+    height: auto;
+    overflow-y: visible;
+    overflow-x: hidden;
+    border: solid 1px #999;
+    background: white;
+    position: absolute;
+    left:35px;
+    top:185px;
+    display: none;
+}
+
+dt:hover{
+    background: #318CE7;
+    color: white;
+}

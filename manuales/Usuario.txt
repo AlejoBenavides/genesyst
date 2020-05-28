@@ -1,0 +1,7 @@
+﻿Nombre de usuario: abps_st_entrenamiento
+Contraseña: Temporal1
+Nombre de la aplicación: WDE_SaludTotal
+Host/Configuración: 172.27.48.241
+Puerto: 2020
+
+Lugar: SaludTotal_29041
