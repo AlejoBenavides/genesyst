@@ -59,6 +59,10 @@
       <img class="no" src="img/leyH.gif"/>
     </div>  
 
+  <!--Imagen premio sorpresa-->	  
+	  <div>
+		  <img class"premioSorpresa" id="premioSorpresa" src="img/premioSorpresa.png">
+	  </div>
   <!--Ventana Logueado-->
 
     <div class="contenedorVentanaLogueo" id="contenedorVentanaLogueo">
@@ -374,6 +378,7 @@
 
     if(place=="" && campoPlace=="SaludTotal_29159"){
         document.getElementById("contenedorVentanaLogueo").style.display="block";
+	document.getElementById("premioSorpresa").style.display="block";
         document.getElementById("ventanaLugar").style.display="none";
     }
     else{
@@ -396,6 +401,7 @@
     function salirDelTodoSi(){
         document.getElementById("avisoSalir").style.display="none";
         document.getElementById("contenedorVentanaLogueo").style.display="none";
+	document.getElementById("premioSorpresa").style.display="none";
     }
 
     function salirDelTodoNo(){
@@ -481,6 +487,7 @@ function reiniciar(){
 function prohibidoJugar(){
     document.getElementById("prohibidoJugar").style.display="block";
     document.getElementById("contenedorVentanaLogueo").style.display="none";
+    document.getElementById("premioSorpresa").style.display="none";
 }
 
 //Visualización del estado del agente
@@ -782,6 +789,8 @@ function ocultarAreasTransferencia(){
         //document.getElementById("campoPlace").value=productos.nombre;
         //document.getElementById("contenidoBuscador").style.display="none";
         //}
+	    
+	    
 
     </script>
   </body>
