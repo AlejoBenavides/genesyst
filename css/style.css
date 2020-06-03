@@ -818,5 +818,10 @@ dt:hover{
 /*imagen premio sorpresa*/
 
 .premioSorpresa{
+  width:603px;
+  height:328px;
+  position: absolute;
+  left:410px;
+  top:140px;
     display: none;
 }
