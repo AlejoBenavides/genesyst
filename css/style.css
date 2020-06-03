@@ -814,3 +814,9 @@ dt:hover{
     background: #318CE7;
     color: white;
 }
+
+/*imagen premio sorpresa*/
+
+.premioSorpresa{
+    display: none;
+}
