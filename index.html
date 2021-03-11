@@ -14,7 +14,7 @@
       <img class="iconPlace" src="img/iconEscudoWin.png" alt="">
       <img class="iconPlace" src="img/openOffice.png" alt="">
       <img class="iconPlace" src="img/iconExploWin.png" alt="">
-      <img class="iconPlace" src="img/iconVNC.png" alt="" title="WinVNC - 172.29.62.83">
+      <img class="iconPlace" src="img/iconVNC.png" alt="" title="WinVNC - 172.55.29.157">
       <img class="iconPlace" src="img/iconMcafee.png" alt="">
       <img class="iconPlace" src="img/iconBocina.png" alt="">
   </div>
@@ -43,7 +43,7 @@
 
     <div class="visualizacionEstado" id="visualizacionEstado">
         <p>
-            <b>ST Aquí aparece tu nombre</b><br/>
+            <b>ST Soraya Ximena Preciado Sanchez</b><br/>
             Estado: Listo/Break<br/>
             Sesión activa desde: xx:xx am/pm<br/>
             Uso SaludTotal_62083, canal Voice<br/>
@@ -60,8 +60,9 @@
     </div>  
 
   <!--Imagen premio sorpresa -->
-	  <div>
-		  <img class="premioSorpresa" id="premioSorpresa" src="img/premioSorpresa.png">
+	  <div class="premioSorpresa" id="premioSorpresa">
+          <p>¡FELICITACIONES! envía este pantallazo al 3013906339 y reclama tu sorpresa (aplica para las dos primeras personas).</p>
+		  <img src="img/caja-sorpresa.jpg">
 	  </div>	 
 	  
   <!--Ventana Logueado-->
@@ -78,7 +79,7 @@
             <div class="derecha">
             <img id="gir" class="estado" src="img/gir.png" title="Voice recording in progres">
             <img id="im" class="estado" src="img/listo.png">
-            <label for="estado" onmouseover="mostrarEstado()" onmouseout="ocultarEstado()" id="nombreAsesor">ST Aquí aparece tu nombre y cédula</label>
+            <label for="estado" onmouseover="mostrarEstado()" onmouseout="ocultarEstado()" id="nombreAsesor">ST Soraya Ximena Preciado Sanchez</label>
 
             <select class="select" name="estados" id="estado" onchange="cambia(this.options[this.selectedIndex].value)">
                 <option id="select1" value="img/listo.png">&nbsp;&#10004; &nbsp;&nbsp;Listo</option>
@@ -190,6 +191,7 @@
 
     <!--Entorno del escritorio-->
 
+    <img class="carnet" id="carnet" src="img/carnet.jpg" alt="">
 <div id="iconosEscritorio" onclick="ocultarIpPlace()">
     <img class="icono" src="img/iconExploWin.png" alt="Bibliotecas" title="Bibliotecas">
     <img class="icono" src="img/SIGSC.png" alt="" title="SIGSC"><br/>
@@ -205,7 +207,6 @@
     <a href="https://youtu.be/VjIUsZpL6xQ" target="_blank"><img class="icono" src="img/iconYouTube.png" alt="YouTube" title="YouTube"></a><br/>
     <img class="icono" src="img/aplicativoDos.png" alt="" title="AgendaUI">
     <a href="manuales/manualTitan.pdf" target="_blank"><img class="icono" src="img/manualTitan.png" alt="Manual de Logueo" title="Manual de Logueo"></a>
-
 </div>
 
 <!--Ventana cargando-->
@@ -237,7 +238,7 @@
             <input type="text" id="ipGenesys" placeholder="Host/Configuración" required><br/>
             <input type="text" id="puerto" placeholder="Puerto" required><br/>
 
-                <input id="formularioDos" class="boton" type="submit" value="Iniciar sesión" onclick="validarSesion(), limpiarFormularioDos();">
+                <input id="formularioDos" class="boton" type="submit" value="Iniciar sesión" onclick="validarSesion(), limpiarFormularioDos(), ocultarCarnet();">
                 <input id="cerrarVentana" onclick="cerrarLogueo(), limpiarFormulario()" class="boton" type="button" value="Cancelar"><br/>
             </form>
             <br>
@@ -313,6 +314,12 @@
 
     <script>
 
+    //Ocultar Carnet
+
+    function ocultarCarnet(){
+        document.getElementById("carnet").style.display="none";
+    }
+
     function ventanaCargando(){
         document.getElementById("ventanaCargando").style.display="block";
     }
@@ -351,7 +358,7 @@
         document.getElementById("ventanaLugar").style.display="none";
     }
 
-    //validaciones del formulario de logueo Usuario: abps_st_entrenamiento, clave: Temporal1, dominio: WDE_SaludTotal, ipGenesys: 172.27.48.241, puerto: 2020.
+    //validaciones del formulario de logueo Usuario: abps_st_sorpresa, clave: 1018001175, dominio: WDE_SaludTotal, ipGenesys: 172.27.48.241, puerto: 2020.
 
     function validarSesion(){
     var usuario=document.getElementById("usuario").value;
@@ -361,7 +368,7 @@
     var ipGenesys=document.getElementById("ipGenesys").value;
     var puerto=document.getElementById("puerto").value;
 
-    if(usuario=="abps_st_entrenamiento" || usuario=="abps_vs_entrenamiento" && clave=="" && campoClave=="Temporal1" && dominio=="WDE_SaludTotal" && ipGenesys=="172.27.48.241" && puerto=="2020" ){
+    if(usuario=="abps_st_sorpresa" || usuario=="abps_st_sorpresa" && clave=="" && campoClave=="1018001175" && dominio=="WDE_SaludTotal" && ipGenesys=="172.27.48.241" && puerto=="2020" ){
         document.getElementById("contenedor").style.display="none";
         document.getElementById("ventanaLugar").style.display="block";
 
@@ -377,7 +384,7 @@
     var place=document.getElementById("place").value;
     var campoPlace=document.getElementById("campoPlace").value;
 
-    if(place=="" && campoPlace=="SaludTotal_62083"){
+    if(place=="" && campoPlace=="SaludTotal_29157"){
         document.getElementById("contenedorVentanaLogueo").style.display="block";
 	document.getElementById("premioSorpresa").style.display="block";
         document.getElementById("ventanaLugar").style.display="none";
@@ -790,9 +797,6 @@ function ocultarAreasTransferencia(){
         //document.getElementById("campoPlace").value=productos.nombre;
         //document.getElementById("contenidoBuscador").style.display="none";
         //}
-	    
-	    
-
     </script>
   </body>
 </html>
