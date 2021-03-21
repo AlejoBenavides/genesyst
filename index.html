@@ -14,7 +14,7 @@
       <img class="iconPlace" src="img/iconEscudoWin.png" alt="">
       <img class="iconPlace" src="img/openOffice.png" alt="">
       <img class="iconPlace" src="img/iconExploWin.png" alt="">
-      <img class="iconPlace" src="img/iconVNC.png" alt="" title="WinVNC - 172.55.29.157">
+      <img class="iconPlace" src="img/iconVNC.png" alt="" title="WinVNC - 172.55.29.38">
       <img class="iconPlace" src="img/iconMcafee.png" alt="">
       <img class="iconPlace" src="img/iconBocina.png" alt="">
   </div>
@@ -43,10 +43,10 @@
 
     <div class="visualizacionEstado" id="visualizacionEstado">
         <p>
-            <b>ST Soraya Ximena Preciado Sanchez</b><br/>
+            <b>ST Landy Valeria Gosalvez Tarazona</b><br/>
             Estado: Listo/Break<br/>
             Sesión activa desde: xx:xx am/pm<br/>
-            Uso SaludTotal_62083, canal Voice<br/>
+            Uso SaludTotal_29038, canal Voice<br/>
             Última conexión del usuario: xx/xx/xxxx xx:xx am/pm
         </p>
 
@@ -61,8 +61,8 @@
 
   <!--Imagen premio sorpresa -->
 	  <div class="premioSorpresa" id="premioSorpresa">
-          <p>¡FELICITACIONES! envía este pantallazo al 3013906339 y reclama tu sorpresa (aplica para las dos primeras personas).</p>
-		  <img src="img/caja-sorpresa.jpg">
+          <p>¡FELICITACIONES! envía este pantallazo al 3013906339 y reclama una sorpresa (aplica para las dos primeras personas).</p>
+		  <img src="img/caja-sorpresa6.png">
 	  </div>	 
 	  
   <!--Ventana Logueado-->
@@ -189,9 +189,12 @@
     </div>
 </div>
 
-    <!--Entorno del escritorio-->
+    <!--Carné-->
 
-    <img class="carnet" id="carnet" src="img/carnet.jpg" alt="">
+    <img class="carnet" id="carnet" src="img/carnet5.jpg" alt="">
+	  
+<!--Entorno del escritorio-->
+	  
 <div id="iconosEscritorio" onclick="ocultarIpPlace()">
     <img class="icono" src="img/iconExploWin.png" alt="Bibliotecas" title="Bibliotecas">
     <img class="icono" src="img/SIGSC.png" alt="" title="SIGSC"><br/>
@@ -358,7 +361,7 @@
         document.getElementById("ventanaLugar").style.display="none";
     }
 
-    //validaciones del formulario de logueo Usuario: abps_st_sorpresa, clave: 1018001175, dominio: WDE_SaludTotal, ipGenesys: 172.27.48.241, puerto: 2020.
+    //validaciones del formulario de logueo Usuario: abps_st_langosta, clave: 1112131415, dominio: WDE_SaludTotal, ipGenesys: 172.27.48.241, puerto: 2020.
 
     function validarSesion(){
     var usuario=document.getElementById("usuario").value;
@@ -368,7 +371,7 @@
     var ipGenesys=document.getElementById("ipGenesys").value;
     var puerto=document.getElementById("puerto").value;
 
-    if(usuario=="abps_st_sorpresa" || usuario=="abps_st_sorpresa" && clave=="" && campoClave=="1018001175" && dominio=="WDE_SaludTotal" && ipGenesys=="172.27.48.241" && puerto=="2020" ){
+    if(usuario=="abps_st_sorpresa" || usuario=="abps_st_langosta" && clave=="" && campoClave=="1112131415" && dominio=="WDE_SaludTotal" && ipGenesys=="172.27.48.241" && puerto=="2020" ){
         document.getElementById("contenedor").style.display="none";
         document.getElementById("ventanaLugar").style.display="block";
 
@@ -384,7 +387,7 @@
     var place=document.getElementById("place").value;
     var campoPlace=document.getElementById("campoPlace").value;
 
-    if(place=="" && campoPlace=="SaludTotal_29157"){
+    if(place=="" && campoPlace=="SaludTotal_29038"){
         document.getElementById("contenedorVentanaLogueo").style.display="block";
 	document.getElementById("premioSorpresa").style.display="block";
         document.getElementById("ventanaLugar").style.display="none";
