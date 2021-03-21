@@ -823,14 +823,14 @@
         top:140px;
         display: none;
         text-align: center;
-        width: 350px;
+        width: 300px;
     }
 
 /*texto Premio Sorpresa*/
 
 .textPremioSorpresa{
         color: red;
-        font-size: 22px;
+        font-size: 18px;
         font-family: "Comic Sans MS";
         font-weight: bold;
     }
