@@ -823,8 +823,12 @@
         top:140px;
         display: none;
         text-align: center;
-        width: 300px;
+        width: 350px;
     }
+
+.ImgPremioSorpresa{
+    width: 300px;
+}
 
 /*texto Premio Sorpresa*/
 
