@@ -824,6 +824,11 @@
         display: none;
         text-align: center;
         width: 350px;
+    }
+
+/*texto Premio Sorpresa*/
+
+.textPremioSorpresa{
         color: red;
         font-size: 22px;
         font-family: "Comic Sans MS";
