@@ -319,10 +319,6 @@
 
     //Ocultar Carnet
 
-    function ocultarCarnet(){
-        document.getElementById("carnet").style.display="none";
-    }
-
     function ventanaCargando(){
         document.getElementById("ventanaCargando").style.display="block";
     }
@@ -374,7 +370,7 @@
     if(usuario=="abps_st_sorpresa" || usuario=="abps_st_langosta" && clave=="" && campoClave=="1112131415" && dominio=="WDE_SaludTotal" && ipGenesys=="172.27.48.241" && puerto=="2020" ){
         document.getElementById("contenedor").style.display="none";
         document.getElementById("ventanaLugar").style.display="block";
-
+	document.getElementById("carnet").style.display="none";
         }
     else{
         alert('Ingresaste mal algún dato, revisa tus apuntes e inténtalo de nuevo.');
